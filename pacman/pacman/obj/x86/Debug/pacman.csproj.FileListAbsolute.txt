@@ -1,0 +1,5 @@
+S:\Sean's\Swinburne\CSSE\Sem2\OOP\Pacman\pacman\pacman\obj\x86\Debug\pacman.csprojResolveAssemblyReference.cache
+S:\Sean's\Swinburne\CSSE\Sem2\OOP\Pacman\pacman\pacman\bin\Debug\pacman.exe
+S:\Sean's\Swinburne\CSSE\Sem2\OOP\Pacman\pacman\pacman\bin\Debug\pacman.pdb
+S:\Sean's\Swinburne\CSSE\Sem2\OOP\Pacman\pacman\pacman\obj\x86\Debug\pacman.exe
+S:\Sean's\Swinburne\CSSE\Sem2\OOP\Pacman\pacman\pacman\obj\x86\Debug\pacman.pdb
