@@ -13,38 +13,26 @@ namespace pacman
 
 		private Position Position;
 
-		private static Random RandomGenerator;
+		//private static Random RandomGenerator;
+
+		private PacmanCharacter GamePacman;
 
 
 		public Board (int xSize, int ySize)
 		{
 			GameBoard = new char[xSize,ySize];
-			RandomGenerator = new Random ();
+			//RandomGenerator = new Random ();
 			Position = new Position ();
+			GamePacman = new PacmanCharacter ();
 
 			this.xSize = xSize;
 			this.ySize = ySize;
-
-			for(Position.X = 0; Position.X != xSize; Position.X++)
-			{
-				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
-				{
-					if (RandomGenerator.NextDouble () < 0.25) 
-					{
-						GameBoard[Position.X,Position.Y] = 'X';
-
-					}
-					else
-					{
-						GameBoard[Position.X,Position.Y] = ' ';
-					}
-				}
-			}
 		}
 
 
 		public void DrawBoard()
 		{
+			GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
 			for(Position.X = 0; Position.X != xSize; Position.X++)
 			{
 				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
@@ -55,48 +43,12 @@ namespace pacman
 			}
 		}
 
-		public void PopulateBoard()
-		{
-			for(Position.X = 0; Position.X != xSize; Position.X++)
-			{
-				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
-				{
-					if (RandomGenerator.NextDouble () < 0.1 && GameBoard[Position.X,Position.Y] != 'X') 
-					{
-						GameBoard[Position.X,Position.Y] = 'O';
-
-					}
-					else if (GameBoard[Position.X,Position.Y] == ' ')
-					{
-						GameBoard[Position.X,Position.Y] = 'o';
-					}
-				}
-			}
-		}
-
 		public void ReadMap()
 		{
 			char ch;
 
 			StreamReader reader;
 			reader = new StreamReader(@"./PacmanMaps/Map1.txt");
-
-			//do
-			//{
-			//	ch = (char)reader.Read();
-				
-			//	Console.Write(ch);
-			//	
-				//for(Position.X = 0; Position.X != xSize; Position.X++)
-			//	{
-					//for(Position.Y = 0; Position.Y != ySize; Position.Y++)
-			//		{
-			//				GameBoard[Position.X,Position.Y] = ch;
-			//		}
-			//	}
-
-			//	//Tchar++;
-			//} while (!reader.EndOfStream);
 
 			for(Position.X = 0; Position.X != xSize; Position.X++)
 			{
@@ -125,6 +77,18 @@ namespace pacman
 			get 
 			{
 				return GameBoard;
+			}
+		}
+
+		public PacmanCharacter Pacman
+		{
+			get
+			{
+				return GamePacman;	
+			}
+			set
+			{
+				GamePacman = value;
 			}
 		}
 

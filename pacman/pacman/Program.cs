@@ -14,13 +14,27 @@ namespace pacman
 			//testboard.DrawBoard ();
 
 			Game TestGame = new Game ("TESTGAME");
+			TestGame.Board.ReadMap ();
+
+			for (int x = 0; x < 28; x++) 
+			{
+				TestGame.Board.Pacman.MovementFunction ();
+				TestGame.Board.DrawBoard ();
+				TestGame.DisplayInstructionScore ();
+				//Console.Clear ();
+			}
+
 
 			//for
 
 			//TestGame.Board.PopulateBoard ();
-			TestGame.Board.ReadMap ();
-			TestGame.Board.DrawBoard ();
-			TestGame.DisplayInstructionScore ();
+
+
+			//loop here
+
+
+
+			//TestGame.DisplayInstructionScore ();
 			//TestGame.Board.ReadMap ();
 
 		}

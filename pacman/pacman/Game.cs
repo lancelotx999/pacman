@@ -7,10 +7,12 @@ namespace pacman
 		private Player GamePlayer;
 		private Board GameBoard;
 
+
 		public Game (String name)
 		{
 			GamePlayer = new Player (name);
-			GameBoard = new Board (28,30);
+			GameBoard = new Board (27,32);
+			//GamePacman = new PacmanCharacter ();
 		}
 
 		public Board Board
@@ -24,6 +26,8 @@ namespace pacman
 				GameBoard = value;
 			}
 		}
+
+
 
 		public void DisplayInstructionScore()
 		{
