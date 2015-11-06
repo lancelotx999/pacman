@@ -24,6 +24,9 @@ namespace pacman
 				//Console.Clear ();
 			}
 
+			//TestGame.Board.DebugBoard ();
+			//TestGame.Board.DrawBoard ();
+
 
 			//for
 

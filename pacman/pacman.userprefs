@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="pacman/pacman.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="pacman/Character.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="pacman/Board.cs">
     <Files>
-      <File FileName="pacman/Program.cs" Line="24" Column="4" />
-      <File FileName="pacman/Game.cs" Line="26" Column="23" />
-      <File FileName="pacman/Board.cs" Line="80" Column="4" />
+      <File FileName="pacman/Program.cs" Line="14" Column="29" />
+      <File FileName="pacman/Game.cs" Line="14" Column="32" />
+      <File FileName="pacman/Board.cs" Line="31" Column="3" />
       <File FileName="pacman/Position.cs" Line="1" Column="1" />
       <File FileName="pacman/Player.cs" Line="11" Column="4" />
-      <File FileName="pacman/Character.cs" Line="12" Column="4" />
-      <File FileName="pacman/PacmanCharacter.cs" Line="10" Column="14" />
+      <File FileName="pacman/Character.cs" Line="22" Column="7" />
+      <File FileName="pacman/PacmanCharacter.cs" Line="21" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

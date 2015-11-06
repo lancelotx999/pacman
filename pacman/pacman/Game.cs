@@ -11,7 +11,7 @@ namespace pacman
 		public Game (String name)
 		{
 			GamePlayer = new Player (name);
-			GameBoard = new Board (27,32);
+			GameBoard = new Board ();
 			//GamePacman = new PacmanCharacter ();
 		}
 
