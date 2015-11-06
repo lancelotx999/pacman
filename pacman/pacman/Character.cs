@@ -8,6 +8,9 @@ namespace pacman
 		private int CharState;
 		private int CharSpeed;
 		private int CharDirection;
+
+		private Board GameBoard;
+
 		public Character ()
 		{
 			
@@ -58,6 +61,18 @@ namespace pacman
 			set
 			{
 				CharDirection = value;
+			}
+		}
+
+		public Board Board
+		{
+			get
+			{
+				return GameBoard;	
+			}
+			set
+			{
+				GameBoard = value;
 			}
 		}
 

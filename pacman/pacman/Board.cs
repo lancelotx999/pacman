@@ -15,24 +15,27 @@ namespace pacman
 
 		//private static Random RandomGenerator;
 
-		private PacmanCharacter GamePacman;
+		//private PacmanCharacter GamePacman;
 
 
 		public Board ()
 		{
-			GameBoard = new char[31,28];
+			// x == 30 y == 28
+			int x = 30;
+			int y = 28;
+			GameBoard = new char[x,y];
 			//RandomGenerator = new Random ();
 			Position = new Position ();
-			GamePacman = new PacmanCharacter ();
+			//GamePacman = new PacmanCharacter ();
 
-			this.xSize = 31;
-			this.ySize = 28;
+			this.xSize = x;
+			this.ySize = y;
 		}
 
 
 		public void DrawBoard()
 		{
-			GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
+			//GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
 
 			for(Position.X = 0; Position.X < xSize; Position.X++)
 			{
@@ -40,77 +43,29 @@ namespace pacman
 				{
 					Console.Write (GameBoard [Position.X,Position.Y]);
 				}
-				//Console.WriteLine("\n");
+				Console.WriteLine ();
 			}
-
-			Console.WriteLine("\n");
-		}
-
-		/*public void DrawBoard()
-		{
-			GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
-
-			for(Position.X = 0; Position.X != xSize; Position.X++)
-			{
-				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
-				{
-					Console.Write (GameBoard [Position.X,Position.Y]);
-				}
-				//Console.WriteLine("\n");
-			}
-
-
-		}*/
-
-		public void DebugBoard()
-		{
-			GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
-			int row = 0;
-			int col = 0;
-
-			for(Position.X = 0; Position.X != xSize; Position.X++)
-			{
-				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
-				{
-					Console.WriteLine ("COL: {0}", col);
-					col++;
-				}
-				//Console.WriteLine("\n");
-				Console.WriteLine("ROW: {0}", row);
-				row++;
-				col = 0;
-			}
-
-			Console.WriteLine (GameBoard[xSize-1, ySize-1]);
-			Console.WriteLine (GameBoard[xSize-1, ySize-1]);
-			Console.WriteLine (GameBoard[xSize-1, ySize-1]);
-
 		}
 
 		public void ReadMap()
 		{
-			char ch;
+			char[] ch = new char[28];
+			string BoardLine;
 
-			StreamReader reader;
-			reader = new StreamReader(@"./PacmanMaps/Map1.txt");
+			StreamReader reader = new StreamReader(@"./PacmanMaps/Map1.txt");
 
-			/*for(Position.X = 0; Position.X != xSize; Position.X++)
+			for(Position.X = 0; Position.X < xSize; Position.X++)
 			{
-				string g = (String)reader.ReadLine();
-				for(Position.Y = 0; Position.Y != ySize; Position.Y++)
+				BoardLine = reader.ReadLine();
+				ch = BoardLine.ToCharArray();
+
+				for(Position.Y = 0; Position.Y < ySize; Position.Y++)
 				{
-					//ch = (char)reader.ReadLine();
-					ch = g[Position.Y];
-					GameBoard[Position.X,Position.Y] = ch;
+					GameBoard [Position.X, Position.Y] = ch [Position.Y];
 				}
-			}*/
-
-			while (!reader.EndOfStream) 
-			{
-				ch = (char)reader.Read();
-				GameBoard[Position.X,Position.Y] = reader.ReadLine ().ToCharArray();
-				Console.WriteLine (reader.ReadLine ());
 			}
+
+			//GamePacman = new PacmanCharacter (GameBoard);
 		}
 
 		public Position Pos
@@ -125,25 +80,19 @@ namespace pacman
 			}
 		}
 
-		private char[,] Map 
+		public char[,] Map 
 		{
 			get 
 			{
 				return GameBoard;
 			}
+			set 
+			{
+				value = GameBoard;
+			}
 		}
 
-		public PacmanCharacter Pacman
-		{
-			get
-			{
-				return GamePacman;	
-			}
-			set
-			{
-				GamePacman = value;
-			}
-		}
+
 
 
 
