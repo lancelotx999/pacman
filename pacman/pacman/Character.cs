@@ -8,6 +8,7 @@ namespace pacman
 		private int CharState;
 		private int CharSpeed;
 		private int CharDirection;
+		private Game CurrentGame;
 
 		private Board GameBoard;
 
@@ -25,6 +26,18 @@ namespace pacman
 			set
 			{
 				CharPosition = value;
+			}
+		}
+
+		public Game Game
+		{
+			get
+			{
+				return CurrentGame;	
+			}
+			set
+			{
+				CurrentGame = value;
 			}
 		}
 
@@ -77,6 +90,7 @@ namespace pacman
 		}
 
 		abstract public void MovementFunction();
+		abstract public void CheckFunction();
 	}
 }
 

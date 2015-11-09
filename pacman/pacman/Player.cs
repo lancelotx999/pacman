@@ -6,11 +6,13 @@ namespace pacman
 	{
 		private string UserName;
 		private int UserScore;
+		private int UserLives;
 
 		public Player (string name)
 		{
 			UserName = name;
 			UserScore = 0;
+			UserLives = 3;
 
 		}
 
@@ -35,6 +37,18 @@ namespace pacman
 			set
 			{
 				UserScore = value;
+			}
+		}
+
+		public int Lives
+		{
+			get
+			{
+				return UserLives;	
+			}
+			set
+			{
+				UserLives = value;
 			}
 		}
 	}

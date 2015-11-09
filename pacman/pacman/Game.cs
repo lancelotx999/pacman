@@ -7,7 +7,7 @@ namespace pacman
 		private Player GamePlayer;
 		private Board GameBoard;
 		private PacmanCharacter GamePacman;
-		private int Lives;
+
 		private bool GameOver;
 
 
@@ -15,8 +15,7 @@ namespace pacman
 		{
 			GamePlayer = new Player (name);
 			GameBoard = new Board ();
-			GamePacman = new PacmanCharacter (GameBoard);
-			Lives = 3;
+			GamePacman = new PacmanCharacter (GameBoard, GamePlayer, this);
 			GameOver = false;
 		}
 
@@ -50,6 +49,10 @@ namespace pacman
 			{
 				return GameOver;	
 			}
+			set 
+			{
+				GameOver = value;
+			}
 		}
 
 
@@ -59,7 +62,7 @@ namespace pacman
 			Console.WriteLine ();
 			Console.WriteLine ("Name: {0}", GamePlayer.Name);
 			Console.WriteLine ("Score: {0}", GamePlayer.Score);
-			Console.WriteLine ("Lives: {0}", Lives);
+			Console.WriteLine ("Lives: {0}", GamePlayer.Lives);
 
 			Console.WriteLine ("W to move up");
 			Console.WriteLine ("A to move right");
@@ -68,7 +71,7 @@ namespace pacman
 
 		}
 
-		public void CheckFunction()
+		/*public void CheckFunction()
 		{
 			if (this.GamePacman.Board.Map [this.GamePacman.Position.X, this.GamePacman.Position.Y] == 'o') 
 			{
@@ -82,7 +85,7 @@ namespace pacman
 			{
 				GameOver = true;
 			}
-		}
+		}*/
 
 	}
 }
