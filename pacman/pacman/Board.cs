@@ -37,6 +37,8 @@ namespace pacman
 		{
 			//GameBoard [GamePacman.Position.X, GamePacman.Position.Y] = 'p';
 
+			Console.Clear ();
+
 			for(Position.X = 0; Position.X < xSize; Position.X++)
 			{
 				for(Position.Y = 0; Position.Y < ySize; Position.Y++)

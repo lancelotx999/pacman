@@ -17,6 +17,7 @@ namespace pacman
 			do
 			{
 				TestGame.Pacman.MovementFunction ();
+				TestGame.RandomGhost.MovementFunction();
 				//TestGame.CheckFunction();
 				TestGame.Board.DrawBoard ();
 				TestGame.DisplayInstructionScore ();

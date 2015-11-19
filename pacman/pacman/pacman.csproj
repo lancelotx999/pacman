@@ -41,6 +41,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="PacmanCharacter.cs" />
+    <Compile Include="GhostCharacter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

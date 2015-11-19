@@ -1,0 +1,225 @@
+﻿using System;
+
+namespace pacman
+{
+	public class GhostCharacter: Character
+	{
+		private static Random RandomGenerator;
+		private char OverlapCharacter = ' ';
+		private PacmanCharacter PlayerPacman;
+
+		public GhostCharacter (Board Gameboard, Player GamePlayer, Game CurrentGame, PacmanCharacter Pacman)
+		{
+			Speed = 1;
+			Direction = 0;
+			State = 0;
+			Board = Gameboard;
+
+			this.Game = CurrentGame;
+			Player = GamePlayer;
+			PlayerPacman = Pacman;
+
+
+			//randomise later
+			this.Position.X = 11;
+			this.Position.Y = 14;
+
+		}
+
+
+		//random movement
+		public override void MovementFunction()
+		{
+			this.Board.Map [this.Position.X, this.Position.Y] = 'G';
+			this.Board.DrawBoard();
+			this.Game.DisplayInstructionScore();
+
+			bool Moved = false;
+
+			do 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'G';
+				this.Board.DrawBoard();
+				this.Game.DisplayInstructionScore();
+				RandomGenerator = new Random ();
+
+				if (RandomGenerator.NextDouble() <= 0.25 && this.Position.X != 1 && this.Board.Map[this.Position.X-1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X-1, this.Position.Y] != '_') 
+				{
+					if(this.Board.Map [this.Position.X-1, this.Position.Y] == 'p')
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = ' ';
+						this.Position.X = this.Position.X - 1;
+
+						Player.Lives--;
+						PlayerPacman.Position.X = 1;
+						PlayerPacman.Position.Y = 1;
+
+						Moved = true;
+					}
+					else
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = this.Board.Map [this.Position.X-1, this.Position.Y];
+						this.Position.X = this.Position.X - 1;
+						Moved = true;
+					}
+
+
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.25 && RandomGenerator.NextDouble() <= 0.50 && this.Position.Y != 1 && this.Board.Map[this.Position.X, this.Position.Y-1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_') 
+				{
+					if(this.Board.Map [this.Position.X, this.Position.Y-1] == 'p')
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = ' ';
+						this.Position.Y = this.Position.Y - 1;
+
+						Player.Lives--;
+						PlayerPacman.Position.X = 1;
+						PlayerPacman.Position.Y = 1;
+
+						Moved = true;
+					}
+					else
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = this.Board.Map [this.Position.X, this.Position.Y-1];
+						this.Position.Y = this.Position.Y - 1;
+						Moved = true;
+					}
+
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.50 && RandomGenerator.NextDouble() <= 0.75 && this.Position.X != 29 && this.Board.Map[this.Position.X+1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X+1, this.Position.Y] != '_') 
+				{
+					if(this.Board.Map [this.Position.X+1, this.Position.Y] == 'p')
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = ' ';
+						this.Position.X = this.Position.X + 1;
+
+						Player.Lives--;
+						PlayerPacman.Position.X = 1;
+						PlayerPacman.Position.Y = 1;
+
+						Moved = true;
+					}
+					else
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = this.Board.Map [this.Position.X+1, this.Position.Y];
+						this.Position.X = this.Position.X + 1;
+						Moved = true;
+					}
+
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.75 && RandomGenerator.NextDouble() <= 1 && this.Position.Y != 27 && this.Board.Map[this.Position.X, this.Position.Y +1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y +1] != '_') 
+				{
+					if(this.Board.Map [this.Position.X, this.Position.Y+1] == 'p')
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = ' ';
+						this.Position.Y = this.Position.Y + 1;
+
+						Player.Lives--;
+						PlayerPacman.Position.X = 1;
+						PlayerPacman.Position.Y = 1;
+
+						Moved = true;
+					}
+					else
+					{
+						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+						OverlapCharacter = this.Board.Map [this.Position.X, this.Position.Y+1];
+						this.Position.Y = this.Position.Y + 1;
+						Moved = true;
+					}
+
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+
+			} while(Moved == false);
+
+
+			//Console.WriteLine(UserInput.Key + " was pressed");
+			CheckFunction ();
+			this.Board.Map [this.Position.X, this.Position.Y] = 'G';
+		}
+
+		public void FollowMovementFunction()
+		{
+			this.Board.Map [this.Position.X, this.Position.Y] = 'G';
+
+			bool Moved = false;
+
+			do 
+			{
+				RandomGenerator = new Random ();
+
+				if (RandomGenerator.NextDouble() <= 0.25 && this.Position.X != 1 && this.Board.Map[this.Position.X-1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X-1, this.Position.Y] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+					OverlapCharacter = this.Board.Map [this.Position.X-1, this.Position.Y];
+					this.Position.X = this.Position.X - 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.25 && RandomGenerator.NextDouble() <= 0.50 && this.Position.Y != 1 && this.Board.Map[this.Position.X, this.Position.Y-1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+					OverlapCharacter = this.Board.Map [this.Position.X, this.Position.Y-1];
+					this.Position.Y = this.Position.Y - 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.50 && RandomGenerator.NextDouble() <= 0.75 && this.Position.X != 29 && this.Board.Map[this.Position.X+1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X+1, this.Position.Y] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+					OverlapCharacter = this.Board.Map [this.Position.X+1, this.Position.Y];
+					this.Position.X = this.Position.X + 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (RandomGenerator.NextDouble() > 0.75 && RandomGenerator.NextDouble() <= 1 && this.Position.Y != 27 && this.Board.Map[this.Position.X, this.Position.Y +1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y +1] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
+					OverlapCharacter = this.Board.Map [this.Position.X, this.Position.Y+1];
+					this.Position.Y = this.Position.Y + 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+
+			} while(Moved == false);
+
+
+			//Console.WriteLine(UserInput.Key + " was pressed");
+			CheckFunction ();
+			this.Board.Map [this.Position.X, this.Position.Y] = 'G';
+		}
+
+		public override void CheckFunction()
+		{
+			//bool ContinueGame = false;
+
+			if (this.Board.Map [this.Position.X, this.Position.Y] == 'P' ) 
+			{
+				//ghost died
+				this.Position.X = 12;
+				this.Position.Y = 14;
+			}
+
+		}
+	}
+}
+

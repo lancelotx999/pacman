@@ -7,6 +7,7 @@ namespace pacman
 		private Player GamePlayer;
 		private Board GameBoard;
 		private PacmanCharacter GamePacman;
+		private GhostCharacter GameRandomGhost;
 
 		private bool GameOver;
 
@@ -16,6 +17,7 @@ namespace pacman
 			GamePlayer = new Player (name);
 			GameBoard = new Board ();
 			GamePacman = new PacmanCharacter (GameBoard, GamePlayer, this);
+			GameRandomGhost = new GhostCharacter (GameBoard, GamePlayer,this,GamePacman);
 			GameOver = false;
 		}
 
@@ -40,6 +42,18 @@ namespace pacman
 			set
 			{
 				GamePacman = value;
+			}
+		}
+
+		public GhostCharacter RandomGhost
+		{
+			get
+			{
+				return GameRandomGhost;	
+			}
+			set
+			{
+				GameRandomGhost = value;
 			}
 		}
 

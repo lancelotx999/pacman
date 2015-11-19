@@ -9,6 +9,7 @@ namespace pacman
 		private int CharSpeed;
 		private int CharDirection;
 		private Game CurrentGame;
+		private Player CurrentPlayer;
 
 		private Board GameBoard;
 
@@ -86,6 +87,18 @@ namespace pacman
 			set
 			{
 				GameBoard = value;
+			}
+		}
+
+		public Player Player
+		{
+			get
+			{
+				return CurrentPlayer;	
+			}
+			set
+			{
+				CurrentPlayer = value;
 			}
 		}
 
