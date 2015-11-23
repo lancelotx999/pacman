@@ -26,7 +26,15 @@ namespace pacman
 
 		public override void MovementFunction()
 		{
-			this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+			if (State == 1) 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+			} 
+			else 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+			}
+
 			this.Board.DrawBoard();
 			this.Game.DisplayInstructionScore();
 
@@ -34,13 +42,21 @@ namespace pacman
 			bool Moved = false;
 			do
 			{
-				this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+				if (State == 1) 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+				} 
+				else 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+				}
+
 				this.Board.DrawBoard();
 				this.Game.DisplayInstructionScore();
 				UserInput = Console.ReadKey();
 				Console.Clear ();
 
-				if (UserInput.Key == ConsoleKey.W && this.Position.X != 1 && this.Board.Map[this.Position.X-1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X-1, this.Position.Y] != '_') 
+				if (UserInput.Key == ConsoleKey.W && this.Position.X != 0 && this.Board.Map[this.Position.X-1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X-1, this.Position.Y] != '_') 
 				{
 					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
 					this.Position.X = this.Position.X - 1;
@@ -48,7 +64,7 @@ namespace pacman
 					//Console.WriteLine ("X = " + this.Position.X);
 					//Console.WriteLine ("Y = " + this.Position.Y);
 				}
-				else if (UserInput.Key == ConsoleKey.A && this.Position.Y != 1 && this.Board.Map[this.Position.X, this.Position.Y-1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_') 
+				else if (UserInput.Key == ConsoleKey.A && this.Position.Y != 0 && this.Board.Map[this.Position.X, this.Position.Y-1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_') 
 				{
 					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
 					this.Position.Y = this.Position.Y - 1;
@@ -72,10 +88,31 @@ namespace pacman
 					//Console.WriteLine ("X = " + this.Position.X);
 					//Console.WriteLine ("Y = " + this.Position.Y);
 				}
+				else if(UserInput.Key == ConsoleKey.A && this.Position.Y == 0)
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = 27;
+					Moved = true;
+				}
+				else if(UserInput.Key == ConsoleKey.D && this.Position.Y == 27)
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = 0;
+					Moved = true;
+				}
+
 			}while(Moved == false);
 			//Console.WriteLine(UserInput.Key + " was pressed");
 			CheckFunction ();
-			this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+
+			if (State == 1) 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+			} 
+			else 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+			}
 		}
 
 
@@ -99,7 +136,7 @@ namespace pacman
 			}
 
 
-			if (this.Board.Map [this.Position.X, this.Position.Y] == 'G') 
+			if (this.Board.Map [this.Position.X, this.Position.Y] == 'G' && State == 0) 
 			{
 				Player.Lives--;
 				//this.Board.Map [this.Position.X, this.Position.Y] = 'G';
@@ -107,6 +144,8 @@ namespace pacman
 				this.Position.X = 1;
 				this.Position.Y = 1;
 			}
+
+
 
 			for (int x = 0; x < 30; x++) 
 			{

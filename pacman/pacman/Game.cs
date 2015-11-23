@@ -8,6 +8,7 @@ namespace pacman
 		private Board GameBoard;
 		private PacmanCharacter GamePacman;
 		private GhostCharacter GameRandomGhost;
+		private GhostCharacter GameTrackingGhost;
 
 		private bool GameOver;
 
@@ -18,6 +19,7 @@ namespace pacman
 			GameBoard = new Board ();
 			GamePacman = new PacmanCharacter (GameBoard, GamePlayer, this);
 			GameRandomGhost = new GhostCharacter (GameBoard, GamePlayer,this,GamePacman);
+			GameTrackingGhost = new GhostCharacter (GameBoard, GamePlayer,this,GamePacman);
 			GameOver = false;
 		}
 
@@ -57,6 +59,18 @@ namespace pacman
 			}
 		}
 
+		public GhostCharacter TrackingGhost
+		{
+			get
+			{
+				return GameTrackingGhost;	
+			}
+			set
+			{
+				GameTrackingGhost = value;
+			}
+		}
+
 		public bool GameOverState
 		{
 			get
@@ -77,6 +91,7 @@ namespace pacman
 			Console.WriteLine ("Name: {0}", GamePlayer.Name);
 			Console.WriteLine ("Score: {0}", GamePlayer.Score);
 			Console.WriteLine ("Lives: {0}", GamePlayer.Lives);
+			Console.WriteLine ("State: {0}", GamePacman.State);
 
 			Console.WriteLine ("W to move up");
 			Console.WriteLine ("A to move right");

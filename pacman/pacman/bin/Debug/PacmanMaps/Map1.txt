@@ -1,6 +1,6 @@
 xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xooooooooooooxxoooooooooooox
-xoxxxxoxxxxxoxxoxxxxxoxxxxox
+xOxxxxoxxxxxoxxoxxxxxoxxxxox
 xoxxxxoxxxxxoxxoxxxxxoxxxxox
 xoooooooooxxoxxoxxooooooooox
 xxxxoxxxxoxxooooxxoxxxxoxxxx
@@ -11,7 +11,7 @@ xoxxxxoxx xxxxxxxx xxoxxxxox
 xoooxxoxx xxxxxxxx xxoxxooox
 xxxoxxo              oxxoxxx
 xxxoxxoxx xxx__xxx xxoxxoxxx
-XXXooooxx xGGGGGGx xxooooXXX
+   ooooxx xGGGGGGx xxoooo   
 xxxoxxxxx xGGGGGGx xxxxxoxxx
 xxxoxxxxx xxxxxxxx xxxxxoxxx
 xoooooo              oooooox
