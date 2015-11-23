@@ -13,6 +13,9 @@ namespace pacman
 
 		private Position Position;
 
+		private int Timer = 30;
+		private int OpenTimer = 30;
+
 		//private static Random RandomGenerator;
 
 		//private PacmanCharacter GamePacman;
@@ -47,25 +50,64 @@ namespace pacman
 				}
 				Console.WriteLine ();
 			}
+
+			Timer--;
+			OpenTimer--;
+
+			if (Timer == 0) 
+			{
+				OpenTimer = 30;
+
+				GameBoard[12,13] = ' ';
+				GameBoard[12,14] = ' ';
+			}
+
+			if(OpenTimer == 0)
+			{
+				Timer = 60;
+				GameBoard[12,13] = '_';
+				GameBoard[12,14] = '_';
+			}
+
+
+
 		}
 
 		public void ReadMap()
 		{
 			char[] ch = new char[28];
 			string BoardLine;
+			Random RandomGenerator = new Random();
 
-			StreamReader reader = new StreamReader(@"./PacmanMaps/Map1.txt");
-
-			for(Position.X = 0; Position.X < xSize; Position.X++)
+			if (RandomGenerator.NextDouble () <= 0.5) 
 			{
-				BoardLine = reader.ReadLine();
-				ch = BoardLine.ToCharArray();
+				StreamReader reader = new StreamReader (@"./PacmanMaps/Map1.txt");
 
-				for(Position.Y = 0; Position.Y < ySize; Position.Y++)
+				for (Position.X = 0; Position.X < xSize; Position.X++) {
+					BoardLine = reader.ReadLine ();
+					ch = BoardLine.ToCharArray ();
+
+					for (Position.Y = 0; Position.Y < ySize; Position.Y++) {
+						GameBoard [Position.X, Position.Y] = ch [Position.Y];
+					}
+				}
+			} 
+			else if (RandomGenerator.NextDouble () > 0.5) 
+			{
+				StreamReader reader = new StreamReader(@"./PacmanMaps/Map2.txt");
+
+				for(Position.X = 0; Position.X < xSize; Position.X++)
 				{
-					GameBoard [Position.X, Position.Y] = ch [Position.Y];
+					BoardLine = reader.ReadLine();
+					ch = BoardLine.ToCharArray();
+
+					for(Position.Y = 0; Position.Y < ySize; Position.Y++)
+					{
+						GameBoard [Position.X, Position.Y] = ch [Position.Y];
+					}
 				}
 			}
+
 
 			//GamePacman = new PacmanCharacter (GameBoard);
 		}

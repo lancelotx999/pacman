@@ -1,23 +1,23 @@
 xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xooooooooooooxxoooooooooooox
-xOxxxxoxxxxxoxxoxxxxxoxxxxox
+xOxxxxoxxxxxoxxoxxxxxoxxxxOx
 xoxxxxoxxxxxoxxoxxxxxoxxxxox
 xoooooooooxxoxxoxxooooooooox
 xxxxoxxxxoxxooooxxoxxxxoxxxx
 xxxxoxxxxoxxoxxoxxoxxxxoxxxx
 xooooooxxoxxoxxoxxoxxoooooox
-xoxxxxoxxooooxxooooxxoxxxxox
+xoxxxxoxxoooOxxOoooxxoxxxxox
 xoxxxxoxx xxxxxxxx xxoxxxxox
 xoooxxoxx xxxxxxxx xxoxxooox
 xxxoxxo              oxxoxxx
 xxxoxxoxx xxx__xxx xxoxxoxxx
-   ooooxx xGGGGGGx xxoooo   
-xxxoxxxxx xGGGGGGx xxxxxoxxx
+   Ooooxx x      x xxoooO   
+xxxoxxxxx x      x xxxxxoxxx
 xxxoxxxxx xxxxxxxx xxxxxoxxx
 xoooooo              oooooox
 xoxxxxoxx xxxxxxxx xxoxxxxox
 xoxxxxoxx xxxxxxxx xxoxxxxox
-xoxxoooxxooooxxooooxxoooxxox
+xoxxoooxxoooOxxOoooxxoooxxox
 xoxxoxxxxxxxoxxoxxxxxxxoxxox
 xoxxoxxxxxxxoxxoxxxxxxxoxxox
 xoooooooooooooooooooooooooox
@@ -25,6 +25,6 @@ xxxxxxxoxxoxxxxxxoxxoxxxxxxx
 xxxxxxxoxxoxxxxxxoxxoxxxxxxx
 xoooooooxxoooxxoooxxooooooox
 xoxxxxxxxxxxoxxoxxxxxxxxxxox
-xoxxxxxxxxxxoxxoxxxxxxxxxxox
+xOxxxxxxxxxxoxxoxxxxxxxxxxOx
 xooooooooooooxxoooooooooooox
 xxxxxxxxxxxxxxxxxxxxxxxxxxxx

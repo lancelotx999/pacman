@@ -21,7 +21,7 @@ namespace pacman
 
 
 			//randomise later
-			this.Position.X = 11;
+			this.Position.X = 13;
 			this.Position.Y = 14;
 
 		}
@@ -64,7 +64,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -106,7 +106,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -147,7 +147,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -188,7 +188,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -229,7 +229,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -269,7 +269,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -328,7 +328,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -368,7 +368,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -406,7 +406,7 @@ namespace pacman
 						this.Board.Map [this.Position.X, this.Position.Y] = OverlapCharacter;
 						OverlapCharacter = ' ';
 
-						this.Position.X = 11;
+						this.Position.X = 13;
 						this.Position.Y = 14;
 
 						this.Player.Score++;
@@ -485,7 +485,7 @@ namespace pacman
 			{
 				//ghost died
 				OverlapCharacter = ' ';
-				this.Position.X = 11;
+				this.Position.X = 13;
 				this.Position.Y = 14;
 
 				this.Player.Score++;

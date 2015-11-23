@@ -7,8 +7,11 @@ namespace pacman
 	{
 		public static void Main (string[] args)
 		{
-
-			Game TestGame = new Game ("TESTGAME");
+			Console.Clear ();
+			Console.WriteLine ("Enter User Name: ");
+			string UserName;
+			UserName = Console.ReadLine();
+			Game TestGame = new Game (UserName);
 			TestGame.Board.ReadMap ();
 
 			TestGame.Board.DrawBoard ();

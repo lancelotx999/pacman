@@ -2,18 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="pacman/GhostCharacter.cs">
     <Files>
-      <File FileName="pacman/Program.cs" Line="29" Column="3" />
-      <File FileName="pacman/Game.cs" Line="18" Column="65" />
-      <File FileName="pacman/Board.cs" Line="95" Column="3" />
+      <File FileName="pacman/Program.cs" Line="9" Column="4" />
+      <File FileName="pacman/Game.cs" Line="94" Column="55" />
+      <File FileName="pacman/Board.cs" Line="95" Column="44" />
       <File FileName="pacman/Position.cs" Line="1" Column="1" />
-      <File FileName="pacman/Player.cs" Line="51" Column="14" />
-      <File FileName="pacman/Character.cs" Line="1" Column="14" />
-      <File FileName="pacman/PacmanCharacter.cs" Line="82" Column="5" />
-      <File FileName="pacman/GhostCharacter.cs" Line="5" Column="15" />
+      <File FileName="pacman/Player.cs" Line="1" Column="1" />
+      <File FileName="pacman/Character.cs" Line="9" Column="25" />
+      <File FileName="pacman/PacmanCharacter.cs" Line="150" Column="14" />
+      <File FileName="pacman/GhostCharacter.cs" Line="67" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/lancelotx999/Documents/Swinburne/OOP/Pacman/pacman/pacman/Board.cs" line="56" column="4" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

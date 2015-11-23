@@ -5,7 +5,7 @@ namespace pacman
 {
 	public class PacmanCharacter: Character
 	{
-		
+		private int Timer;
 
 		public PacmanCharacter (Board Gameboard, Player GamePlayer, Game CurrentGame)
 		{
@@ -13,6 +13,8 @@ namespace pacman
 			Direction = 0;
 			State = 0;
 			Board = Gameboard;
+			Timer = 0;
+
 
 			this.Game = CurrentGame;
 			Player = GamePlayer;
@@ -104,7 +106,7 @@ namespace pacman
 			}while(Moved == false);
 			//Console.WriteLine(UserInput.Key + " was pressed");
 			CheckFunction ();
-
+			Timer--;
 			if (State == 1) 
 			{
 				this.Board.Map [this.Position.X, this.Position.Y] = 'P';
@@ -133,6 +135,12 @@ namespace pacman
 
 				//Can now eat ghosts
 				State = 1;
+				Timer = 20;
+			}
+
+			if (Timer == 0) 
+			{
+				State = 0;
 			}
 
 
