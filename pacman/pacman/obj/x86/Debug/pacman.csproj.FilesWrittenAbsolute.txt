@@ -3,3 +3,4 @@
 /home/lancelotx999/Documents/Swinburne/OOP/Pacman/pacman/pacman/bin/Debug/pacman.exe
 /home/lancelotx999/Documents/Swinburne/OOP/Pacman/pacman/pacman/obj/x86/Debug/pacman.exe
 /home/lancelotx999/Documents/Swinburne/OOP/Pacman/pacman/pacman/obj/x86/Debug/pacman.exe.mdb
+/home/lancelotx999/Documents/Swinburne/OOP/Pacman/pacman/pacman/bin/Debug/nunit.framework.dll

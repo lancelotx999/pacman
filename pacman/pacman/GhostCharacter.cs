@@ -20,7 +20,7 @@ namespace pacman
 			PlayerPacman = Pacman;
 
 
-			//randomise later
+			//starting position
 			this.Position.X = 13;
 			this.Position.Y = 14;
 

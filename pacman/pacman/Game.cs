@@ -35,6 +35,18 @@ namespace pacman
 			}
 		}
 
+		public Player Player
+		{
+			get
+			{
+				return GamePlayer;	
+			}
+			set
+			{
+				GamePlayer = value;
+			}
+		}
+
 		public PacmanCharacter Pacman
 		{
 			get
@@ -99,22 +111,7 @@ namespace pacman
 			Console.WriteLine ("D to move up");
 
 		}
-
-		/*public void CheckFunction()
-		{
-			if (this.GamePacman.Board.Map [this.GamePacman.Position.X, this.GamePacman.Position.Y] == 'o') 
-			{
-				GamePlayer.Score++;
-			}
-			if (this.GamePacman.Board.Map [this.GamePacman.Position.X, this.GamePacman.Position.Y] == 'G') 
-			{
-				this.Lives--;
-			}
-			if (this.Lives == 0) 
-			{
-				GameOver = true;
-			}
-		}*/
+			
 
 	}
 }

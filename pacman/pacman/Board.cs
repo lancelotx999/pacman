@@ -78,23 +78,26 @@ namespace pacman
 			char[] ch = new char[28];
 			string BoardLine;
 			Random RandomGenerator = new Random();
+			StreamReader reader;
 
 			if (RandomGenerator.NextDouble () <= 0.5) 
 			{
-				StreamReader reader = new StreamReader (@"./PacmanMaps/Map1.txt");
+				reader = new StreamReader (@"./PacmanMaps/Map1.txt");
 
-				for (Position.X = 0; Position.X < xSize; Position.X++) {
+				for (Position.X = 0; Position.X < xSize; Position.X++) 
+				{
 					BoardLine = reader.ReadLine ();
 					ch = BoardLine.ToCharArray ();
 
-					for (Position.Y = 0; Position.Y < ySize; Position.Y++) {
+					for (Position.Y = 0; Position.Y < ySize; Position.Y++) 
+					{
 						GameBoard [Position.X, Position.Y] = ch [Position.Y];
 					}
 				}
 			} 
-			else if (RandomGenerator.NextDouble () > 0.5) 
+			else
 			{
-				StreamReader reader = new StreamReader(@"./PacmanMaps/Map2.txt");
+				reader = new StreamReader(@"./PacmanMaps/Map2.txt");
 
 				for(Position.X = 0; Position.X < xSize; Position.X++)
 				{
@@ -103,6 +106,7 @@ namespace pacman
 
 					for(Position.Y = 0; Position.Y < ySize; Position.Y++)
 					{
+						
 						GameBoard [Position.X, Position.Y] = ch [Position.Y];
 					}
 				}

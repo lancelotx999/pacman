@@ -11,21 +11,20 @@ namespace pacman
 			Console.WriteLine ("Enter User Name: ");
 			string UserName;
 			UserName = Console.ReadLine();
-			Game TestGame = new Game (UserName);
-			TestGame.Board.ReadMap ();
+			Game MainGame = new Game (UserName);
+			MainGame.Board.ReadMap ();
 
-			TestGame.Board.DrawBoard ();
-			TestGame.DisplayInstructionScore ();
+			MainGame.Board.DrawBoard ();
+			MainGame.DisplayInstructionScore ();
 
 			do
 			{
-				TestGame.Pacman.MovementFunction ();
-				TestGame.RandomGhost.MovementFunction();
-				TestGame.TrackingGhost.TrackMovementFunction();
-				//TestGame.CheckFunction();
-				TestGame.Board.DrawBoard ();
-				TestGame.DisplayInstructionScore ();
-			}while(TestGame.GameOverState == false);
+				MainGame.Pacman.MovementFunction ();
+				MainGame.RandomGhost.MovementFunction();
+				MainGame.TrackingGhost.TrackMovementFunction();
+				MainGame.Board.DrawBoard ();
+				MainGame.DisplayInstructionScore ();
+			}while(MainGame.GameOverState == false);
 
 			Console.WriteLine ("Game Over");
 				

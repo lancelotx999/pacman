@@ -20,7 +20,7 @@ namespace pacman
 			Player = GamePlayer;
 
 
-			//randomise later
+			//starting position
 			this.Position.X = 1;
 			this.Position.Y = 1;
 
@@ -97,6 +97,98 @@ namespace pacman
 					Moved = true;
 				}
 				else if(UserInput.Key == ConsoleKey.D && this.Position.Y == 27)
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = 0;
+					Moved = true;
+				}
+
+			}while(Moved == false);
+			//Console.WriteLine(UserInput.Key + " was pressed");
+			CheckFunction ();
+			Timer--;
+			if (State == 1) 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+			} 
+			else 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+			}
+		}
+
+
+		//used mainly for testing
+		public void MovementFunction(Char Key)
+		{
+			if (State == 1) 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+			} 
+			else 
+			{
+				this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+			}
+
+			this.Board.DrawBoard();
+			this.Game.DisplayInstructionScore();
+			Console.Clear ();
+
+			bool Moved = false;
+			do
+			{
+				if (State == 1) 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = 'P';
+				} 
+				else 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = 'p';
+				}
+
+				this.Board.DrawBoard();
+				this.Game.DisplayInstructionScore();
+				Console.Clear ();
+
+				if (Key == 'W' && this.Position.X != 0 && this.Board.Map[this.Position.X-1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X-1, this.Position.Y] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.X = this.Position.X - 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (Key == 'A' && this.Position.Y != 0 && this.Board.Map[this.Position.X, this.Position.Y-1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y-1] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = this.Position.Y - 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (Key == 'S' && this.Position.X != 29 && this.Board.Map[this.Position.X+1, this.Position.Y] != 'x' && this.Board.Map[this.Position.X+1, this.Position.Y] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.X = this.Position.X + 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if (Key == 'D' && this.Position.Y != 27 && this.Board.Map[this.Position.X, this.Position.Y +1] != 'x' && this.Board.Map[this.Position.X, this.Position.Y +1] != '_') 
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = this.Position.Y + 1;
+					Moved = true;
+					//Console.WriteLine ("X = " + this.Position.X);
+					//Console.WriteLine ("Y = " + this.Position.Y);
+				}
+				else if(Key == 'A' && this.Position.Y == 0)
+				{
+					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
+					this.Position.Y = 27;
+					Moved = true;
+				}
+				else if(Key == 'D' && this.Position.Y == 27)
 				{
 					this.Board.Map [this.Position.X, this.Position.Y] = ' ';
 					this.Position.Y = 0;
